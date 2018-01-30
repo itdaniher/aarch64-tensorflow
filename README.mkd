@@ -5,9 +5,17 @@ steps N:
 
 ```bash
 ./configure # disable everything 
-bazel build -c opt --local_resources 3000,3.0,2.0 --verbose_failures tensorflow/tools/pip_package:build_pip_package
-# will return something akin to: "INFO: Elapsed time: 11932.393s, Critical Path: 397.48s"
+bazel build -c opt --local_resources 2000,3.0,2.0 --verbose_failures tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 ```
+
+should print something akin to:
+
+```
+Target //tensorflow/tools/pip_package:build_pip_package up-to-date:                                                                                                       
+  bazel-bin/tensorflow/tools/pip_package/build_pip_package                                                                                                                
+  INFO: Elapsed time: 33645.503s, Critical Path: 2176.93s
+```
+
 
 and you're done!
